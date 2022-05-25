@@ -6,7 +6,7 @@
 
 <script>
 // @ is an alias to /src
-import api from '@/services/api';
+import { mapActions } from 'vuex'
 
 export default {
   name: "Home",
@@ -17,10 +17,11 @@ export default {
       user: []
     }
   },
-  async mounted() {
-    api().post('/auth/login', {password: '123123', username: 'admin'}).then((response) => {
-      console.log('response', response)
-    })
+  async created() {
+    await this.getStudent()
+  },
+   methods: {
+    ...mapActions('student', ['getStudent']),
   }
 };
 </script>

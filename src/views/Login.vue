@@ -51,7 +51,13 @@ export default {
     ...mapActions('auth', ['getUser']),
     async login() {
       console.log('login')
-      await this.getUser(this.payload)
+      await this.getUser(this.payload).then(res => {
+        if (res) {
+          this.$router.push({
+            name: '/'
+          })
+        }
+      })
     }
   }
 }

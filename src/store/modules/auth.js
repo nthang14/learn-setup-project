@@ -27,6 +27,7 @@ export default {
 					context.commit("setUser", result.data.data.profile);
 					context.commit("setAccessToken", result.data.data.accessToken);
 					localStorage.setItem("accessToken", result.data.data.accessToken);
+					return true;
 				}
 			} catch (e) {
 				console.log("[getUser]", e)
