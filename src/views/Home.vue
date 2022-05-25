@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    Home
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import api from '@/services/api';
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
   },
+  data() {
+    return {
+      user: []
+    }
+  },
+  async mounted() {
+    api().post('/auth/login', {password: '123123', username: 'admin'}).then((response) => {
+      console.log('response', response)
+    })
+  }
 };
 </script>
