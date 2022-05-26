@@ -1,4 +1,4 @@
-import api from '@/services/api'
+import api from '@/services/request'
 import * as APIs from '@/utils/endpoints'
 import { isResponseSuccess } from '@/utils/common'
 
@@ -14,7 +14,7 @@ export default {
 	actions: {
 		async getStudent(context, params) {
 			try {
-				const result = await api().get(APIs.STUDENT, params);
+				const result = await api.get(APIs.STUDENT, params);
 				if (isResponseSuccess(result)) {
 					console.log("result");
 				}

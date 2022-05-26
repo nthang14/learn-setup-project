@@ -28,7 +28,7 @@
           cols="12"
           sm="12"
           md="12">
-            <v-btn @click="login">
+            <v-btn @click="login" color="primary">
               Login
             </v-btn>
         </v-col>
