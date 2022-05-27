@@ -1,4 +1,7 @@
 import axios from "axios"
+import store from "@/store/index";
+import { CONFIG_NAME } from "@/utils/constants";
+
 export default class API_CONFIG {
 	api = null;
 	constructor() {
@@ -10,17 +13,33 @@ export default class API_CONFIG {
 				"Content-Type": "application/json",
 			},
 		});
-		this.api.interceptors.response.use();
+		this.api.interceptors.response.use(this.handleSuccess, this.handleError);
 	}
 	handleSuccess(response) {
-		console.log("response", response);
+		return response
 	}
-	handleError(error) {
-		console.log("error", error);
+	async handleError(error) {
+		const err = error.response.data.error;
+		let config = error.response.config;
+		if (err.code === 401 && err.type === 'AuthenticationError') {
+			let refreshToken = localStorage.getItem(CONFIG_NAME.REFRESH_TOKEN);
+			if (refreshToken) {
+				await store.dispatch("auth/refreshToken", { refreshToken: refreshToken }).then(res => {
+					if (res) {
+						location.reload();
+						return Promise.resolve(config);
+						// để ntn thì api bị lỗi vẫn hiện trên request
+						// config.headers['Authorization'] = `Bearer ${res}`
+						// return axios.request(config)
+					}
+				})
+			} else {
+				return Promise.reject(error.response);
+			}
+		}
 	}
 	setToken(token) {
 		this.api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-		// this.api.defaults.headers.common["x-access-token"] = token;
 	}
 	setRenewToken(token) {
 		this.api.defaults.headers.common['Authorization'] = `Bearer ${token}`;

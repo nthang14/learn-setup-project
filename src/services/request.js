@@ -7,4 +7,5 @@ let token = localStorage.getItem(CONFIG_NAME.ACCESS_TOKEN);
 if (token) {
   api.setToken(token)
 }
+
 export default api;

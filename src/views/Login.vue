@@ -28,7 +28,7 @@
           cols="12"
           sm="12"
           md="12">
-            <v-btn @click="login" color="primary">
+            <v-btn @click="handleLogin" color="primary">
               Login
             </v-btn>
         </v-col>
@@ -48,10 +48,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions('auth', ['getUser']),
-    async login() {
+    ...mapActions('auth', ['login']),
+    async handleLogin() {
       console.log('login')
-      await this.getUser(this.payload).then(res => {
+      await this.login(this.payload).then(res => {
         if (res) {
           this.$router.push({
             name: '/'
