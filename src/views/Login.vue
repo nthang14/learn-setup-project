@@ -7,10 +7,9 @@
           sm="6"
           md="6"
         >
-          <v-text-field
-            label="username"
-            v-model="payload.username"
-          ></v-text-field>
+        <BaseInput type="email" label="Email Address" v-model="payload.username" value="email">
+        </BaseInput>
+          
         </v-col>
 
         <v-col
@@ -33,15 +32,21 @@
             </v-btn>
         </v-col>
       </v-row>
+      
     </v-container>
   </v-form>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import BaseInput from '@/components/login/BaseInput'
 export default {
+  components: {
+    BaseInput
+  },
   data() {
     return {
+      email: 'test@gmail.com',
       payload: {
 
       }

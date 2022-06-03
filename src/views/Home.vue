@@ -1,13 +1,23 @@
 <template>
   <div class="home">
     home
-    <list-items />
+    <!-- <list-items /> -->
     <!-- <div v-highlight:background.delay="`red`">custom directives</div> -->
     <div  v-click-outside="() => { isActive = false }">
       <v-btn @click="open">control</v-btn>
       <span v-if="isActive">clickOutside</span>
     </div>
-    <div class="test-infinite-scroll" v-load-infinite="load">
+    <div>
+      filter vue 
+      <div>{{ number | multi-number}}</div>
+    </div>
+    <ComponentSlot>
+      <div slot="header">
+        12312434
+        <!-- <div>header 122134</div> -->
+      </div>
+    </ComponentSlot>
+    <!-- <div class="test-infinite-scroll" v-load-infinite="load">
       The Progressive Framework#
       Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
 
@@ -42,6 +52,10 @@
       Go with Composition API + Single-File Components if you plan to build full applications with Vue.
 
       You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the API Preference switches at the top of the left sidebar.
+    </div> -->
+    <div>check</div>
+    <div>
+      <b-button title="Button" tag="span" :list="[1, 2, 3, 4]">SAVE</b-button>
     </div>
   </div>
 </template>
@@ -49,16 +63,23 @@
 <script>
 // @ is an alias to /src
 import { mapActions } from 'vuex'
-import ListItems from '@/components/home/ListItems'
+// import ListItems from '@/components/home/ListItems'
+import ComponentSlot from '@/components/home/ComponentSlot'
+import test from '@/mixins/test'
+// import baseButton from '@/components/common/button'
 export default {
   name: "Home",
+  mixins: [test],
   components: {
-    ListItems
+    // ListItems
+    ComponentSlot,
+    // baseButton
   },
   data() {
     return {
       user: [],
-      isActive: false
+      isActive: false,
+      number: 2
     }
   },
   async created() {
