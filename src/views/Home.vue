@@ -53,7 +53,7 @@
 
       You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the API Preference switches at the top of the left sidebar.
     </div> -->
-    <div>check</div>
+    <div class="check">check</div>
     <div>
       <b-button title="Button" tag="span" :list="[1, 2, 3, 4]">SAVE</b-button>
     </div>
@@ -99,7 +99,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 .test-infinite-scroll {
   height: 200px;
   padding: 20px 10px;
@@ -107,4 +107,10 @@ export default {
   overflow: hidden;
   overflow-y: auto;
 }
+.home {
+  .check {
+    color: $text-color;
+  }
+}
 </style>
+

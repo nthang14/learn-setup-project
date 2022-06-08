@@ -1,0 +1,35 @@
+// @import './mixin.scss';
+$prefix: 'learn-';
+$main-color: #a98a57;
+$input-color: #363f44;
+$loader-color: #a98a57;
+$checkbox-color: #009c28;
+$success-color: #4caf50;
+$warning-color: #ffc107;
+$info-color: #2196f3;
+$error-color: #ff5252;
+$text-color: #ff5252;
+$link-color: #ff5252;
+$border-color: #dddd;
+$background-page: #ffffff; // f9fbfd
+$label-color-form: #55586c;
+$min-height-input: 36px;
+$color-input-desc: #82869e;
+$btn-sizes: (
+  'default': 401,
+  'large': 540,
+);
+// $input-background-
+
+$height-header-main: 58px;
+
+@for $i from 10 through 30 {
+  .fz-#{$i} {
+    font-size: #{$i}px !important ;
+  }
+}
+@for $i from 50 through 300 {
+  .max-width-#{$i} {
+    max-width: #{$i}px !important ;
+  }
+}

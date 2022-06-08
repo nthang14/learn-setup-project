@@ -1,5 +1,4 @@
 <script>
-import './index.css'
 export default {
   name: 'base-button',
   props: {
@@ -17,7 +16,7 @@ export default {
     console.log('ctx', ctx);
     return h(ctx.props.tag ? ctx.props.tag : 'div', {
       attrs: {
-        class: 'test'
+        class: 'learn-test'
       }
     }, [
       h('div', {}, ctx.props.title),
