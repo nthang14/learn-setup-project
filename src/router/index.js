@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import { CONFIG_NAME } from "@/utils/constants";
+import { CONFIG_NAME } from "@/utils/constants";
 import Home from "@/views/Home.vue";
 
 Vue.use(VueRouter);
@@ -25,10 +25,10 @@ const router = new VueRouter({
   routes,
 });
 
-// router.beforeEach((to, from, next) => {
-//   let isAuthenticated = localStorage.getItem(CONFIG_NAME.ACCESS_TOKEN);
-//   if (to.name !== "Login" && !isAuthenticated) next({ name: "Login" });
-// 	else next()
-// })
+router.beforeEach((to, from, next) => {
+  let isAuthenticated = localStorage.getItem(CONFIG_NAME.ACCESS_TOKEN);
+  if (to.name !== "Login" && !isAuthenticated) next({ name: "Login" });
+	else next()
+})
 
 export default router;
