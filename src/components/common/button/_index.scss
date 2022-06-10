@@ -1,0 +1,6 @@
+.#{$prefix}btn {
+  color: red;
+}
+.#{$prefix}btn-success {
+  @include button-variant($success-color, "#fff")
+}

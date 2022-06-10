@@ -5,7 +5,7 @@ import store from "./store";
 import vuetify from "@/plugins/vuetify";
 import "@/plugins/directives/index.js";
 import "@/plugins/filters/index.js";
-import "@/components/common/index"
+import "@/components/common/index.js"
 Vue.config.productionTip = false;
 new Vue({
   router,

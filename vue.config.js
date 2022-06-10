@@ -4,9 +4,7 @@ module.exports = {
 	css: {
 		loaderOptions: {
 			sass: {
-				additionalData: `@import "@/assets/scss/variables.scss";
-        @import "@/assets/scss/style.scss";
-        `,
+				additionalData: `@import "@/assets/scss/style.scss";`,
 			},
 		},
 	},
@@ -17,3 +15,4 @@ module.exports = {
 	},
 	// publicPath: "/admin",
 };
+ 

@@ -1,1 +1,7 @@
-@import '@/components/common'
+@import '@/assets/scss/abstracts/variables.scss';
+
+// mixin
+@import '@/assets/scss/mixins/_button.scss';
+
+// common
+@import '@/components/common';

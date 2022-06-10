@@ -1,5 +1,8 @@
 <script>
+import { PREFIX } from '@/utils/configs'
+const COMPONENT_CLASS = PREFIX + 'btn'
 export default {
+  
   name: 'base-button',
   props: {
     title: String,
@@ -16,11 +19,10 @@ export default {
     console.log('ctx', ctx);
     return h(ctx.props.tag ? ctx.props.tag : 'div', {
       attrs: {
-        class: 'learn-test'
+        class: `${COMPONENT_CLASS} ${COMPONENT_CLASS}-success`
       }
     }, [
       h('div', {}, ctx.props.title),
-      h('div', {}, ctx.props.list.map(i => h('span', {}, `${i}`))),
       ...(ctx.children || [])
     ])
   }

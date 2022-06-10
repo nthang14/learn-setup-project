@@ -55,7 +55,7 @@
     </div> -->
     <div class="check">check</div>
     <div>
-      <b-button title="Button" tag="span" :list="[1, 2, 3, 4]">SAVE</b-button>
+      <b-button tag="span" :list="[1, 2, 3, 4]">SAVE</b-button>
     </div>
   </div>
 </template>
