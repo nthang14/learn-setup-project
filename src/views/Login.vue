@@ -32,6 +32,9 @@
             </v-btn>
         </v-col>
       </v-row>
+      <v-row>
+        <ChildA />
+      </v-row>
       
     </v-container>
   </v-form>
@@ -40,9 +43,14 @@
 <script>
 import { mapActions } from 'vuex'
 import BaseInput from '@/components/login/BaseInput'
+import ChildA from '@/components/login/ChildA'
 export default {
   components: {
-    BaseInput
+    BaseInput,
+    ChildA
+  },
+  provide: {
+    foo: 'bar'
   },
   data() {
     return {
